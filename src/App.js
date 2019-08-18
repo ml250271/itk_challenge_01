@@ -44,7 +44,7 @@ class App extends Component {
             );
             this.setState({ offices: data, loading: false });
         } catch (error) {
-            console.error(error);
+            console.log(error);
             this.setState({ loading: false });
         }
     }
@@ -61,7 +61,16 @@ class App extends Component {
             );
         }
         if (offices.length === 0) {
-            return <p>Error!</p>;
+            return (
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="container">
+                        <h1 className="display-4">Error!</h1>
+                        <p className="lead">
+                            Request failed with status code 404
+                        </p>
+                    </div>
+                </div>
+            );
         }
         return (
             <Router>
