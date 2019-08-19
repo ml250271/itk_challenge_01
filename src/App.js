@@ -80,7 +80,7 @@ class App extends Component {
                     exact
                     render={() => <List offices={offices} />}
                 />
-                <Route path="/grid" component={Grid} />
+                <Route path="/grid" render={() => <Grid offices={offices} />} />
                 <Route path="/offices-map" component={OfficesMap} />
             </Router>
         );

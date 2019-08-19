@@ -24,6 +24,9 @@ const ListItemWrapper = styled.div`
         background-color: lightgray;
         font-weight: bold;
         border-radius: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 `;
 
@@ -33,11 +36,9 @@ const ListItem = props => {
         <ListItemWrapper photoUrl={office.photo}>
             <div className="media">
                 {office.photo ? (
-                    <div className="cover-image rounded-circle mr-3">
-                        &nbsp;
-                    </div>
+                    <div className="cover-image rounded-circle">&nbsp;</div>
                 ) : (
-                    <div className="office-letter mr-3">{office.name[0]}</div>
+                    <div className="office-letter">{office.name[0]}</div>
                 )}
                 <div className="media-body">
                     <h5 className="mt-0">{office.name}</h5>
