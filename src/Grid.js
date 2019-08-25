@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import GridItem from "./GridItem";
+import OfficesMap from "./OfficesMap";
 
 const GridItemWrapper = styled.div`
     display: grid;
