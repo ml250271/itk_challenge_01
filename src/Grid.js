@@ -51,7 +51,7 @@ const Grid = props => {
     return (
         <GridItemWrapper>
             {offices.map(office => {
-                return <GridItem office={office} />;
+                return <GridItem key={office.id} office={office} />;
             })}
         </GridItemWrapper>
     );
