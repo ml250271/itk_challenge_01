@@ -15,6 +15,7 @@ const ListItemWrapper = styled.div`
         height: 60px;
         width: 60px;
         border: 1px solid lightgray;
+        margin: 0 10px;
     }
     .office-letter {
         width: 60px;
@@ -26,8 +27,7 @@ const ListItemWrapper = styled.div`
         font-weight: bold;
         border-radius: 100%;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 10px;
     }
 `;
 
