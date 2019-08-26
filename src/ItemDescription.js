@@ -10,7 +10,7 @@ class HandleDescLength extends React.Component {
     };
 
     render() {
-        const { desc, desiredLength } = this.props;
+        const { desc, desiredLength = 60 } = this.props;
         const { showLess } = this.state;
         const newDesc = showLess ? desc.slice(0, desiredLength) : desc;
 

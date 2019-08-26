@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ItemDescription from "./ItemDescription";
 
 const ListItemWrapper = styled.div`
     width: 95%;
@@ -42,7 +43,10 @@ const ListItem = props => {
                 )}
                 <div className="media-body">
                     <h5 className="mt-0">{office.name}</h5>
-                    {office.description}
+                    <ItemDescription
+                        desc={office.description}
+                        desiredLength={90}
+                    />
                 </div>
             </div>
         </ListItemWrapper>
