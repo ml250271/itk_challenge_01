@@ -50,10 +50,12 @@ class OfficesMap extends Component {
                             anchor="bottom-right"
                             longitude={this.state.popupInfo.longitude}
                             latitude={this.state.popupInfo.latitude}
+                            description={this.state.popupInfo.description}
+                            photo={this.state.popupInfo.photo}
                             onClose={() => this.setState({ popupInfo: null })}
                             closeOnClick={true}
                         >
-                            <p>YOUR POPUP INFO</p>
+                            <h5>YOUR POPUP INFO</h5>
                         </Popup>
                     )}
                     <div style={navStyle}>
@@ -70,7 +72,9 @@ class OfficesMap extends Component {
                                     handlePopup={() =>
                                         this.handlePopup({
                                             latitude: Number(office.latitude),
-                                            longitude: Number(office.longitude)
+                                            longitude: Number(office.longitude),
+                                            photo: office.photo,
+                                            description: office.description
                                         })
                                     }
                                 />
