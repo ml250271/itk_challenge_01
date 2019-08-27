@@ -81,7 +81,10 @@ class App extends Component {
                     render={() => <List offices={offices} />}
                 />
                 <Route path="/grid" render={() => <Grid offices={offices} />} />
-                <Route path="/offices-map" component={OfficesMap} />
+                <Route
+                    path="/offices-map"
+                    render={() => <OfficesMap offices={offices} />}
+                />
             </Router>
         );
     }
