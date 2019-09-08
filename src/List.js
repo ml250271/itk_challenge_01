@@ -1,5 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem";
+import styled from "styled-components";
 
 const List = props => {
     const { offices } = props;

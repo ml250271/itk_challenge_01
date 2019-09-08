@@ -7,7 +7,9 @@ const GridItemWrapper = styled.div`
     grid-template-columns: 2.5fr 2.5fr 2.5fr 2.5fr;
     /* width: 95%; */
     grid-gap: 12px;
-    margin: 0 12px;
+    margin: 20px;
+    padding: 20px;
+    background: rgb(119, 201, 182);
     .card {
         min-height: 300px;
         padding-top: 20px;

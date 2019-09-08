@@ -21,11 +21,14 @@ class HandleDescLength extends React.Component {
             <>
                 <p className="card-text">
                     {newDesc}
-                    {showLess && "..."}
+                    {showLess && "... "}
+                    <button
+                        className="btn btn-outline-info btn-sm"
+                        onClick={this.handleShowLess}
+                    >
+                        {showLess ? "Show More" : "Show Less"}
+                    </button>
                 </p>
-                <button onClick={this.handleShowLess}>
-                    {showLess ? "Show More" : "Show Less"}
-                </button>
             </>
         );
     }

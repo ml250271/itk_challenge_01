@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <div className="navbar navbar-expand-lg navbar-light bg-light">
-            <nav>
+        <div>
+            <nav
+                className="navbar navbar-expand-lg navbar-dark"
+                style={{ backgroundColor: "rgb(119, 201, 182)" }}
+            >
                 <ul className="navbar-nav mr-auto">
                     <span className="navbar-brand">Offices</span>
                     <li className="nav-item">
