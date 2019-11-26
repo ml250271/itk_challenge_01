@@ -15,7 +15,7 @@ const GridItemWrapper = styled.div`
         padding-top: 20px;
     }
     .card-img-top {
-        background-image: url(${props => props.photoUrl});
+        /* background-image: url(${props => props.photoUrl}); */
         background-size: cover;
         background-position: center;
         height: 60px;
@@ -38,7 +38,7 @@ const GridItemWrapper = styled.div`
         text-align: center;
     }
     @media only screen and (max-width: 1000px) {
-        grid-template-columns: 3.33fr 3.33fr 3.33fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
     @media only screen and (max-width: 768px) {
         grid-template-columns: 1fr 1fr;
@@ -49,14 +49,14 @@ const GridItemWrapper = styled.div`
 `;
 
 const Grid = props => {
-    const { offices } = props;
-    return (
-        <GridItemWrapper>
-            {offices.map(office => {
-                return <GridItem key={office.id} office={office} />;
-            })}
-        </GridItemWrapper>
-    );
+  const { offices } = props;
+  return (
+    <GridItemWrapper>
+      {offices.map(office => {
+        return <GridItem key={office.id} office={office} />;
+      })}
+    </GridItemWrapper>
+  );
 };
 
 export default Grid;
