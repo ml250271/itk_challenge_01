@@ -11,13 +11,11 @@ const navStyle = {
   position: "absolute",
   top: 10,
   left: 10,
-  padding: "10px"
+  padding: "1rem"
 };
 
 const PopupStyle = styled.div`
   text-align: center;
-  overflow: visible;
-  z-index: 100;
   h6 {
     max-width: 6rem;
     margin: 0.8rem;

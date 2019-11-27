@@ -5,14 +5,12 @@ const PinButton = styled.button`
   background: transparent;
   padding: 0;
   border: none;
-  z-index: -11;
 `;
 
 const pinStyle = {
   cursor: "pointer",
   fill: "#d00",
-  stroke: "none",
-  zIndex: -10
+  stroke: "none"
 };
 
 export default props => {
