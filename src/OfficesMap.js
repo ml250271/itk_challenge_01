@@ -15,6 +15,8 @@ const navStyle = {
 };
 
 const PopupStyle = styled.div`
+  position: relative;
+  z-index: 1000;
   text-align: center;
   h6 {
     max-width: 6rem;
@@ -38,8 +40,9 @@ class OfficesMap extends Component {
     popupInfo: null
   };
 
-  handleViewportChange = viewport =>
+  handleViewportChange = viewport => {
     this.setState({ viewport: { ...viewport, transitionDuration: 500 } });
+  };
 
   handlePopup = popupInfo => {
     this.setState({ popupInfo });
@@ -65,7 +68,6 @@ class OfficesMap extends Component {
                 longitude={this.state.popupInfo.longitude}
                 latitude={this.state.popupInfo.latitude}
                 onClose={() => this.setState({ popupInfo: null })}
-                closeOnClick={true}
               >
                 <h6>{this.state.popupInfo.name}</h6>
                 <div>
