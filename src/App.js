@@ -14,14 +14,12 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-        // API URL should be constant
-      const { data } = await axios.get(
-        "https://itk-exam-api.herokuapp.com/api/offices"
-      );
+      console.log(process.env.REACT_APP_TOKEN);
+      const { data } = await axios.get(process.env.REACT_APP_API_URL);
       this.setState({ offices: data, loading: false });
     } catch (error) {
       // 1. Remove console error
-        // 2. You can set some prop that error true and notify user
+      // 2. You can set some prop that error true and notify user
       console.error(error);
       this.setState({ loading: false });
     }

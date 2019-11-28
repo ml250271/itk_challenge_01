@@ -4,8 +4,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import Pin from "./Pin";
 import styled from "styled-components";
 
-const TOKEN =
-  "pk.eyJ1IjoibWwyNTAyNzEiLCJhIjoiY2p6c3g3OW5xMWdwNTNkbG02NW94cmV1NyJ9.jTx8XF8o85cazxpC5IKF4w";
+const TOKEN = process.env.REACT_APP_MAP_TOKEN;
 
 const navStyle = {
   position: "absolute",
