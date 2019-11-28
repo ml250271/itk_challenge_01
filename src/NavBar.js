@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // No inline style style={{ backgroundColor: "rgb(119, 201, 182)" }} you already added 3 classes
-
 // Avoid repetition like this: (following part can be mapped or extract as component and then mapped.
 {
   /*<li className="nav-item">*/
