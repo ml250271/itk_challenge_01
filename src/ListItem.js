@@ -31,6 +31,8 @@ const ListItemWrapper = styled.div`
   }
 `;
 
+// GridItem and ListItem can be same component with conditional styling based on some prop
+// desiredLength={90} 90 should be constant which is reused throught application
 const ListItem = ({ office }) => {
   return (
     <ListItemWrapper photoUrl={office.photo}>
@@ -48,5 +50,7 @@ const ListItem = ({ office }) => {
     </ListItemWrapper>
   );
 };
+
+// Missing propTypes
 
 export default ListItem;

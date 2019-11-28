@@ -1,6 +1,19 @@
 import React from "react";
 import ItemDescription from "./ItemDescription";
 
+
+// This should be new component Avatar
+// {office.photo ? (
+//     <img
+//         className="card-img-top rounded-circle"
+//         src={office.photo}
+//         alt="Card cap"
+//     />
+// ) : (
+//     <div className="office-letter">{office.name[0]}</div>
+// )}
+
+
 const GridItem = props => {
     const { office } = props;
     return (

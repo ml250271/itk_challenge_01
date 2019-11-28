@@ -12,11 +12,15 @@ class HandleDescLength extends React.Component {
   render() {
     const { desc, desiredLength = 60 } = this.props;
     const { showLess } = this.state;
+    // Instead of truncating text you can use css elipsis
     const newDesc = showLess ? desc.slice(0, desiredLength) : desc;
 
     if (desc.length < desiredLength) {
       return <p className="card-text">{desc}</p>;
     }
+
+    // No need for extra?  <> dom element
+    // Replace P with DIV. Button should not be child of P
     return (
       <>
         <p className="card-text">

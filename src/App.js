@@ -14,11 +14,14 @@ class App extends Component {
 
   async componentDidMount() {
     try {
+        // API URL should be constant
       const { data } = await axios.get(
         "https://itk-exam-api.herokuapp.com/api/offices"
       );
       this.setState({ offices: data, loading: false });
     } catch (error) {
+      // 1. Remove console error
+        // 2. You can set some prop that error true and notify user
       console.error(error);
       this.setState({ loading: false });
     }
@@ -35,6 +38,7 @@ class App extends Component {
         </div>
       );
     }
+    // This is not proper way to handle error. If API return empty list (from some reason) this message will be displayed.
     if (offices.length === 0) {
       return (
         <div className="jumbotron jumbotron-fluid">
@@ -45,6 +49,7 @@ class App extends Component {
         </div>
       );
     }
+
     return (
       <Router>
         <NavBar />

@@ -12,4 +12,5 @@ const List = props => {
   );
 };
 
+// Missing propTypes
 export default List;

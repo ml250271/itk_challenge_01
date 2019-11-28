@@ -1,6 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// No inline style style={{ backgroundColor: "rgb(119, 201, 182)" }} you already added 3 classes
+// Use NavLink to be able da style active link style
+// Also Dom structure problem UL should have only LI elements as children
+// Avoid repetition like this: (following part can be mapped or extract as component and then mapped.
+{/*<li className="nav-item">*/}
+{/*    <Link to="/" className="nav-link">*/}
+{/*        List*/}
+{/*    </Link>*/}
+{/*</li>*/}
+
 const NavBar = () => {
     return (
         <div>

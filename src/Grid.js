@@ -57,4 +57,6 @@ const Grid = props => {
   );
 };
 
+// Missing PropTypes
+
 export default Grid;

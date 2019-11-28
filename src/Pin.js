@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import styled from "styled-components";
 
 const PinButton = styled.button`
@@ -13,6 +13,7 @@ const pinStyle = {
   stroke: "none"
 };
 
+// Not sure that this should be component. You need at least one condition
 export default props => {
   return (
     <PinButton onClick={props.handlePopup}>

@@ -51,6 +51,9 @@ class OfficesMap extends Component {
   render() {
     const { viewport } = this.state;
     const { offices } = this.props;
+    // USe more desctructuring for example for popupInfo is repeated 7 times
+    // No inline styles   <div style={{ margin: "0", padding: "2rem" }}>
+    // latitude and longitude should be converted to number outside of render method (even more not two times in same render methid)
     return (
       <div style={{ margin: "0", padding: "2rem" }}>
         <h1>Office Location</h1>
@@ -110,5 +113,7 @@ class OfficesMap extends Component {
     );
   }
 }
+
+// missing PropTypes
 
 export default OfficesMap;
