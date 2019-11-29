@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import styled from "styled-components";
-import Pin from "../Pin";
+import Pin from "../../Pin";
 
 const TOKEN = process.env.REACT_APP_MAP_TOKEN;
 
