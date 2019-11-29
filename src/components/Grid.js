@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import OfficeItem from "./OfficeItem";
+import OfficeItem from "../shared/OfficeItem";
 
 const GridItemWrapper = styled.div`
   display: grid;

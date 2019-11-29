@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import List from "./List";
-import Grid from "./Grid";
-import OfficesMap from "./OfficesMap";
-import NavBar from "./NavBar";
+import List from "./components/List";
+import Grid from "./components/Grid";
+import OfficesMap from "./components/OfficesMap";
+import NavBar from "./shared/NavBar";
 import "./App.css";
 
 class App extends Component {

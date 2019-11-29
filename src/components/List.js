@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import OfficeItem from "./OfficeItem";
+import OfficeItem from "../shared/OfficeItem";
 
 const ListItemWrapper = styled.div`
   width: 95%;
