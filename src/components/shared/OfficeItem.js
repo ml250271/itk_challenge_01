@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ItemDescription from "./ItemDescription";
 import Avatar from "./Avatar";
 
@@ -12,6 +13,11 @@ const OfficeItem = ({ office, renderStyle }) => {
       </div>
     </div>
   );
+};
+
+Avatar.propTypes = {
+  office: PropTypes.object,
+  renderStyle: PropTypes.object
 };
 
 export default OfficeItem;

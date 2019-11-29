@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class HandleDescLength extends React.Component {
   state = {
@@ -10,7 +11,7 @@ class HandleDescLength extends React.Component {
   };
 
   render() {
-    const { desc, desiredLength = 60 } = this.props;
+    const { desc = "", desiredLength = 60 } = this.props;
     const { showLess } = this.state;
     // Instead of truncating text you can use css elipsis
     const newDesc = showLess ? desc.slice(0, desiredLength) : desc;
@@ -20,7 +21,6 @@ class HandleDescLength extends React.Component {
     }
 
     // No need for extra?  <> dom element
-    // Replace P with DIV. Button should not be child of P
     return (
       <div className="card-text">
         {newDesc}
@@ -35,5 +35,10 @@ class HandleDescLength extends React.Component {
     );
   }
 }
+
+HandleDescLength.propTypes = {
+  desc: PropTypes.string,
+  desiredLength: PropTypes.number
+};
 
 export default HandleDescLength;

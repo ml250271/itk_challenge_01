@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import OfficeItem from "../shared/OfficeItem";
+import { PropTypes } from "prop-types";
 
 const ListItemWrapper = styled.div`
   width: 95%;
@@ -38,17 +39,16 @@ const List = ({ offices }) => {
   return (
     <>
       {offices.map(office => (
-        <ListItemWrapper>
-          <OfficeItem
-            key={office.id}
-            office={office}
-            renderStyle={renderList}
-          />
+        <ListItemWrapper key={office.id}>
+          <OfficeItem office={office} renderStyle={renderList} />
         </ListItemWrapper>
       ))}
     </>
   );
 };
 
-// Missing propTypes
+List.propTypes = {
+  offices: PropTypes.arrayOf(PropTypes.object)
+};
+
 export default List;
