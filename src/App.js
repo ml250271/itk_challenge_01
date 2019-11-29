@@ -9,24 +9,21 @@ import NavBar from "./NavBar";
 class App extends Component {
   state = {
     offices: [],
-    loading: true
+    loading: true,
+    hasError: false
   };
 
   async componentDidMount() {
     try {
-      console.log(process.env.REACT_APP_TOKEN);
       const { data } = await axios.get(process.env.REACT_APP_API_URL);
-      this.setState({ offices: data, loading: false });
+      this.setState({ offices: data, loading: false, hasError: false });
     } catch (error) {
-      // 1. Remove console error
-      // 2. You can set some prop that error true and notify user
-      console.error(error);
-      this.setState({ loading: false });
+      this.setState({ loading: false, hasError: true });
     }
   }
 
   render() {
-    const { offices, loading } = this.state;
+    const { offices, loading, hasError } = this.state;
     if (loading) {
       return (
         <div className="d-flex justify-content-center">
@@ -36,15 +33,32 @@ class App extends Component {
         </div>
       );
     }
-    // This is not proper way to handle error. If API return empty list (from some reason) this message will be displayed.
-    if (offices.length === 0) {
+
+    if (hasError) {
       return (
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
             <h1 className="display-4">Error!</h1>
-            <p className="lead">Request failed with status code 404</p>
+            <p className="lead"></p>
           </div>
         </div>
+      );
+    }
+
+    if (offices.length === 0) {
+      return (
+        <Router>
+          <NavBar />
+          <Route
+            path="/offices-map"
+            render={() => <OfficesMap offices={offices} />}
+          />
+          <div className="jumbotron jumbotron-fluid">
+            <div className="container">
+              <p>There are no offices to display at the moment.</p>
+            </div>
+          </div>
+        </Router>
       );
     }
 
