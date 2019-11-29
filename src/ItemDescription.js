@@ -22,18 +22,16 @@ class HandleDescLength extends React.Component {
     // No need for extra?  <> dom element
     // Replace P with DIV. Button should not be child of P
     return (
-      <>
-        <p className="card-text">
-          {newDesc}
-          {showLess && "... "}
-          <button
-            className="btn btn-outline-info btn-sm"
-            onClick={this.handleShowLess}
-          >
-            {showLess ? "Show More" : "Show Less"}
-          </button>
-        </p>
-      </>
+      <div className="card-text">
+        {newDesc}
+        {showLess && "... "}
+        <button
+          className="btn btn-outline-info btn-sm"
+          onClick={this.handleShowLess}
+        >
+          {showLess ? "Show More" : "Show Less"}
+        </button>
+      </div>
     );
   }
 }

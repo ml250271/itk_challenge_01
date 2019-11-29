@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import GridItem from "./GridItem";
+import PropTypes from "prop-types";
+import OfficeItem from "./OfficeItem";
 
 const GridItemWrapper = styled.div`
   display: grid;
@@ -12,6 +13,9 @@ const GridItemWrapper = styled.div`
   .card {
     min-height: 300px;
     padding-top: 20px;
+  }
+  .card {
+    text-align: center;
   }
   .card-img-top {
     background-size: cover;
@@ -46,17 +50,34 @@ const GridItemWrapper = styled.div`
   }
 `;
 
-const Grid = props => {
-  const { offices } = props;
+const Grid = ({ offices }) => {
+  const renderGrid = {
+    wrapperClass: "card",
+    imgClass: "card-img-top",
+    bodyClass: "card-body",
+    titleClass: "card-title"
+  };
   return (
     <GridItemWrapper>
       {offices.map(office => {
-        return <GridItem key={office.id} office={office} />;
+        return (
+          <OfficeItem
+            key={office.id}
+            office={office}
+            renderStyle={renderGrid}
+          />
+        );
       })}
     </GridItemWrapper>
   );
 };
 
-// Missing PropTypes
+Grid.propTypes = {
+  offices: PropTypes.arrayOf(PropTypes.object)
+};
 
+// Do I need default prop offices: [] here, considering the default state of offices is []?
+Grid.defaultProps = {
+  offices: []
+};
 export default Grid;

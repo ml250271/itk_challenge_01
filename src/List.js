@@ -1,12 +1,50 @@
 import React from "react";
-import ListItem from "./ListItem";
+import styled from "styled-components";
+import OfficeItem from "./OfficeItem";
 
-const List = props => {
-  const { offices } = props;
+const ListItemWrapper = styled.div`
+  width: 95%;
+  margin: 40px auto;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 8px;
+
+  .cover-image {
+    height: 60px;
+    width: 60px;
+    border: 1px solid lightgray;
+    margin: 0 10px;
+  }
+  .office-letter {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 2.3rem;
+    background-color: lightgray;
+    font-weight: bold;
+    border-radius: 100%;
+    display: block;
+    margin: 0 10px;
+  }
+`;
+
+const List = ({ offices }) => {
+  const renderList = {
+    wrapperClass: "media",
+    imgClass: "cover-image",
+    bodyClass: "media-body",
+    titleClass: "mt-0"
+  };
   return (
     <>
       {offices.map(office => (
-        <ListItem key={office.id} office={office} />
+        <ListItemWrapper>
+          <OfficeItem
+            key={office.id}
+            office={office}
+            renderStyle={renderList}
+          />
+        </ListItemWrapper>
       ))}
     </>
   );

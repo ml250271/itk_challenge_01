@@ -25,6 +25,7 @@ class App extends Component {
 
   render() {
     const { offices, loading, hasError } = this.state;
+
     if (loading) {
       return (
         <div className="Aligner d-flex justify-content-center">
