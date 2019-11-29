@@ -1,6 +1,6 @@
 # Offices list
 
-Offices list is a test project - website that displays a list of offices around the world in three ways: a list, a grid and a map view.
+Offices list is a test project - website that displays a list of offices around the world. It containes a navigation bar that uses [React-router](https://reacttraining.com/react-router/web/guides/quick-start) and leads to three pages: Link, Grid and Map. Each of those pages renders the offices in quoted style.  
 
 ## Technology and framework
 
