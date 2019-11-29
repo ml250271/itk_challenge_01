@@ -48,7 +48,7 @@ class OfficesMap extends Component {
   };
 
   render() {
-    const { viewport } = this.state;
+    const { viewport, popupInfo } = this.state;
     const { offices } = this.props;
     // USe more desctructuring for example for popupInfo is repeated 7 times
     // No inline styles   <div style={{ margin: "0", padding: "2rem" }}>
@@ -62,22 +62,19 @@ class OfficesMap extends Component {
           mapStyle="mapbox://styles/mapbox/bright-v8"
           onViewportChange={this.handleViewportChange}
         >
-          {this.state.popupInfo && (
+          {popupInfo && (
             <PopupStyle>
               <Popup
                 tipSize={5}
                 anchor="bottom-right"
-                longitude={this.state.popupInfo.longitude}
-                latitude={this.state.popupInfo.latitude}
+                longitude={popupInfo.longitude}
+                latitude={popupInfo.latitude}
                 onClose={() => this.setState({ popupInfo: null })}
               >
-                <h6>{this.state.popupInfo.name}</h6>
+                <h6>{popupInfo.name}</h6>
                 <div>
-                  {this.state.popupInfo.photo && (
-                    <img
-                      alt={this.state.popupInfo.name}
-                      src={this.state.popupInfo.photo}
-                    />
+                  {popupInfo.photo && (
+                    <img alt={popupInfo.name} src={popupInfo.photo} />
                   )}
                 </div>
               </Popup>
