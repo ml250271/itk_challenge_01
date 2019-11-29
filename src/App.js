@@ -5,6 +5,7 @@ import List from "./List";
 import Grid from "./Grid";
 import OfficesMap from "./OfficesMap";
 import NavBar from "./NavBar";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -26,9 +27,9 @@ class App extends Component {
     const { offices, loading, hasError } = this.state;
     if (loading) {
       return (
-        <div className="d-flex justify-content-center">
-          <div className="spinner-border m-5" role="status">
-            <span className="sr-only">Loading...</span>
+        <div className="Aligner d-flex justify-content-center">
+          <div className="Aligner-item spinner-border m-5" role="status">
+            <div className="sr-only">Loading...</div>
           </div>
         </div>
       );
