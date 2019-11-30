@@ -14,7 +14,7 @@ class App extends Component {
     hasError: false
   };
 
-  changeToNumber = offices => {
+  convertToNumber = offices => {
     offices.map(office => {
       office.latitude = Number(office.latitude);
       office.longitude = Number(office.longitude);
@@ -25,7 +25,7 @@ class App extends Component {
   async componentDidMount() {
     try {
       const { data } = await axios.get(process.env.REACT_APP_API_URL);
-      this.changeToNumber(data);
+      this.convertToNumber(data);
       this.setState({ offices: data, loading: false, hasError: false });
     } catch (error) {
       this.setState({ loading: false, hasError: true });
