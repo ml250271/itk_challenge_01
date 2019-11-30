@@ -41,7 +41,16 @@ const List = ({ offices }) => {
 };
 
 List.propTypes = {
-  offices: PropTypes.arrayOf(PropTypes.object).isRequired
+  offices: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      id: PropTypes.number,
+      latitude: PropTypes.number,
+      longitude: PropTypes.number,
+      name: PropTypes.string,
+      photo: PropTypes.string
+    })
+  ).isRequired
 };
 
 List.defaultProps = {
