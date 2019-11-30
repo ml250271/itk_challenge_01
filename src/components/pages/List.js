@@ -24,23 +24,16 @@ const ListItemWrapper = styled.div`
     background-color: lightgray;
     font-weight: bold;
     border-radius: 100%;
-    display: block;
     margin: 0 10px;
   }
 `;
 
 const List = ({ offices }) => {
-  const renderList = {
-    wrapperClass: "media",
-    imgClass: "cover-image",
-    bodyClass: "media-body",
-    titleClass: "mt-0"
-  };
   return (
     <>
       {offices.map(office => (
         <ListItemWrapper key={office.id}>
-          <OfficeItem office={office} renderStyle={renderList} />
+          <OfficeItem office={office} layout={"list"} />
         </ListItemWrapper>
       ))}
     </>
@@ -48,7 +41,11 @@ const List = ({ offices }) => {
 };
 
 List.propTypes = {
-  offices: PropTypes.arrayOf(PropTypes.object)
+  offices: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+List.defaultProps = {
+  offices: []
 };
 
 export default List;

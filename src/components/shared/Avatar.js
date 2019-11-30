@@ -1,20 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Avatar = ({ office, renderStyle }) =>
+const Avatar = ({ office = {}, imgClass = "" }) =>
   office.photo ? (
-    <img
-      className={renderStyle.imgClass + " rounded-circle"}
-      src={office.photo}
-      alt="Card cap"
-    />
+    <img className={imgClass} src={office.photo} alt="Card cap" />
   ) : (
     <div className="office-letter">{office.name[0]}</div>
   );
 
 Avatar.propTypes = {
   office: PropTypes.object,
-  renderStyle: PropTypes.object
+  imgClass: PropTypes.string
 };
 
 export default Avatar;

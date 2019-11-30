@@ -17,15 +17,16 @@ const NavBar = () => {
             <span className="navbar-brand">Offices</span>
           </li>
           {pages.map(page => {
+            const { path, text } = page;
             return (
-              <li key={page.path} className="nav-item">
+              <li key={path} className="nav-item">
                 <NavLink
                   exact
-                  to={page.path}
+                  to={path}
                   className="nav-link"
                   activeClassName="active"
                 >
-                  {page.text}
+                  {text}
                 </NavLink>
               </li>
             );

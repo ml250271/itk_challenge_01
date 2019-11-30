@@ -2,16 +2,22 @@ import React, { Component } from "react";
 import MapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import styled from "styled-components";
+import { PropTypes } from "prop-types";
 import Pin from "../../Pin";
+import Avatar from "../shared/Avatar";
 
 const TOKEN = process.env.REACT_APP_MAP_TOKEN;
 
-const navStyle = {
-  position: "absolute",
-  top: 10,
-  left: 10,
-  padding: "1rem"
-};
+const MapStyle = styled.div`
+  padding: 2rem;
+`;
+
+const NavStyle = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 1rem;
+`;
 
 const PopupStyle = styled.div`
   position: relative;
@@ -25,7 +31,26 @@ const PopupStyle = styled.div`
     width: 8rem;
     height: 4rem;
   }
+
+  .office-letter {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 2.3rem;
+    background-color: lightgray;
+    font-weight: bold;
+    border-radius: 100%;
+    margin: auto;
+  }
 `;
+
+const renderGrid = {
+  wrapperClass: "card",
+  imgClass: "card-img-top",
+  bodyClass: "card-body",
+  titleClass: "card-title"
+};
 
 class OfficesMap extends Component {
   state = {
@@ -50,11 +75,9 @@ class OfficesMap extends Component {
   render() {
     const { viewport, popupInfo } = this.state;
     const { offices } = this.props;
-    // USe more desctructuring for example for popupInfo is repeated 7 times
-    // No inline styles   <div style={{ margin: "0", padding: "2rem" }}>
-    // latitude and longitude should be converted to number outside of render method (even more not two times in same render methid)
+    const { name, longitude, latitude } = popupInfo || {};
     return (
-      <div style={{ margin: "0", padding: "2rem" }}>
+      <MapStyle>
         <h1>Office Location</h1>
         <MapGL
           {...viewport}
@@ -67,37 +90,39 @@ class OfficesMap extends Component {
               <Popup
                 tipSize={5}
                 anchor="bottom-right"
-                longitude={popupInfo.longitude}
-                latitude={popupInfo.latitude}
+                longitude={longitude}
+                latitude={latitude}
                 onClose={() => this.setState({ popupInfo: null })}
               >
-                <h6>{popupInfo.name}</h6>
+                <h6>{name}</h6>
                 <div>
-                  {popupInfo.photo && (
-                    <img alt={popupInfo.name} src={popupInfo.photo} />
-                  )}
+                  <Avatar office={popupInfo} renderStyle={renderGrid} />
                 </div>
               </Popup>
             </PopupStyle>
           )}
-          <div style={navStyle}>
+          <NavStyle>
             <NavigationControl />
-          </div>
+          </NavStyle>
           {offices.map(office => {
+            const {
+              id,
+              name,
+              longitude,
+              latitude,
+              photo,
+              description
+            } = office;
             return (
-              <Marker
-                key={office.id}
-                latitude={Number(office.latitude)}
-                longitude={Number(office.longitude)}
-              >
+              <Marker key={id} latitude={latitude} longitude={longitude}>
                 <Pin
                   handlePopup={() =>
                     this.handlePopup({
-                      latitude: Number(office.latitude),
-                      longitude: Number(office.longitude),
-                      photo: office.photo,
-                      description: office.description,
-                      name: office.name
+                      latitude: latitude,
+                      longitude: longitude,
+                      photo: photo,
+                      description: description,
+                      name: name
                     })
                   }
                 />
@@ -105,11 +130,17 @@ class OfficesMap extends Component {
             );
           })}
         </MapGL>
-      </div>
+      </MapStyle>
     );
   }
 }
 
-// missing PropTypes
+OfficesMap.propTypes = {
+  offices: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+OfficesMap.defaultProps = {
+  offices: []
+};
 
 export default OfficesMap;

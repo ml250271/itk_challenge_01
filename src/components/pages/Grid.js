@@ -51,33 +51,21 @@ const GridItemWrapper = styled.div`
 `;
 
 const Grid = ({ offices }) => {
-  const renderGrid = {
-    wrapperClass: "card",
-    imgClass: "card-img-top",
-    bodyClass: "card-body",
-    titleClass: "card-title"
-  };
   return (
     <GridItemWrapper>
       {offices.map(office => {
-        return (
-          <OfficeItem
-            key={office.id}
-            office={office}
-            renderStyle={renderGrid}
-          />
-        );
+        return <OfficeItem key={office.id} office={office} layout={"grid"} />;
       })}
     </GridItemWrapper>
   );
 };
 
 Grid.propTypes = {
-  offices: PropTypes.arrayOf(PropTypes.object)
+  offices: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-// Do I need default prop offices: [] here, considering the default state of offices is []?
 Grid.defaultProps = {
   offices: []
 };
+
 export default Grid;

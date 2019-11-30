@@ -11,7 +11,10 @@ class HandleDescLength extends React.Component {
   };
 
   render() {
-    const { desc = "", desiredLength = 60 } = this.props;
+    const {
+      desc = "The description for this office is missing.",
+      desiredLength = 60
+    } = this.props;
     const { showLess } = this.state;
     // Instead of truncating text you can use css elipsis
     const newDesc = showLess ? desc.slice(0, desiredLength) : desc;
