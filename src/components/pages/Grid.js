@@ -5,18 +5,22 @@ import OfficeItem from "../shared/OfficeItem";
 
 const GridItemWrapper = styled.div`
   display: grid;
-  grid-template-columns: 2.5fr 2.5fr 2.5fr 2.5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 12px;
   margin: 20px;
   padding: 20px;
   background: rgb(119, 201, 182);
+
   .card {
     min-height: 300px;
     padding-top: 20px;
-  }
-  .card {
     text-align: center;
   }
+
+  .card-body {
+    width: 100%;
+  }
+
   .card-img-top {
     background-size: cover;
     background-position: center;
