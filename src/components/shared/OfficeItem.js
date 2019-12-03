@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ItemDescription from "./ItemDescription";
 import Avatar from "./Avatar";
 import styled from "styled-components";
 
@@ -32,7 +31,6 @@ const OfficeItem = ({ office, layout }) => {
 
   const { wrapperClass, imgClass, bodyClass, titleClass } = renderStyle;
   const { name, description } = office;
-  console.log("l:" + layout);
   return (
     <div className={wrapperClass}>
       <Avatar office={office} imgClass={imgClass} />
@@ -41,20 +39,14 @@ const OfficeItem = ({ office, layout }) => {
         <Truncate layout={layout}>
           <p className="card-text">{description}</p>
         </Truncate>
-        {/* <ItemDescription desc={description} desiredLength={90} /> */}
       </div>
     </div>
   );
 };
 
 Avatar.propTypes = {
-  office: PropTypes.object,
-  layout: PropTypes.string
-};
-
-Avatar.defaultProps = {
-  office: {},
-  layout: ""
+  office: PropTypes.object.isRequired,
+  layout: PropTypes.string.isRequired
 };
 
 export default OfficeItem;
