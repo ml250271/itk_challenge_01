@@ -16,7 +16,8 @@ Make sure you have [Node.js](https://nodejs.org/en/) and [NPM](https://nodejs.or
 1. Download and extract the repository
 2. Navigate to the project folder with Command Prompt / Terminal
 3. Run `npm install` and wait for the installation to finish
-4. Run `npm start` which will start the page.
+4. Run `cp .env.example .env` in order to create .env file
+5. Run `npm start` which will start the page.
 
 ### Map source
 

@@ -14,19 +14,21 @@ class App extends Component {
     hasError: false
   };
 
-  prepareData = offices => {
-    return offices.map(office => {
-      office.latitude = Number(office.latitude);
-      office.longitude = Number(office.longitude);
-      return office;
+  prepareData = offices =>
+    offices.map(office => {
+      return {
+        ...office,
+        latitude: Number(office.latitude),
+        longitude: Number(office.longitude)
+      };
     });
-  };
 
   async componentDidMount() {
     try {
       const { data } = await axios.get(process.env.REACT_APP_API_URL);
-      this.prepareData(data);
-      this.setState({ offices: data, loading: false, hasError: false });
+      const preparedData = this.prepareData(data);
+      console.log(preparedData);
+      this.setState({ offices: preparedData, loading: false, hasError: false });
     } catch (error) {
       this.setState({ loading: false, hasError: true });
     }
@@ -37,8 +39,8 @@ class App extends Component {
 
     if (loading) {
       return (
-        <div className="Aligner d-flex justify-content-center">
-          <div className="Aligner-item spinner-border m-5" role="status">
+        <div className="aligner d-flex justify-content-center">
+          <div className="aligner-item spinner-border m-5" role="status">
             <div className="sr-only">Loading...</div>
           </div>
         </div>

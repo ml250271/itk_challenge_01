@@ -1,9 +1,9 @@
-.Aligner {
+.aligner {
     display: flex;
     height: 100vh;
-  }
+}
   
-.Aligner-item {
+.aligner-item {
     height: 100vh;
     align-self: center;
-  }
+}
