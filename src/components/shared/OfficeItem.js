@@ -17,9 +17,14 @@ const renderList = {
   titleClass: "mt-0"
 };
 
+const layoutTypes = {
+  grid: "grid",
+  list: "list"
+};
+
 const Truncate = styled.div`
   p {
-    width: ${props => (props.layout === "list" ? "85vw" : "93%")};
+    width: ${props => (props.layout === layoutTypes.list ? "85vw" : "93%")};
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -27,7 +32,7 @@ const Truncate = styled.div`
 `;
 
 const OfficeItem = ({ office, layout }) => {
-  const renderStyle = layout === "list" ? renderList : renderGrid;
+  const renderStyle = layout === layoutTypes.list ? renderList : renderGrid;
 
   const { wrapperClass, imgClass, bodyClass, titleClass } = renderStyle;
   const { name, description } = office;
@@ -44,9 +49,9 @@ const OfficeItem = ({ office, layout }) => {
   );
 };
 
-Avatar.propTypes = {
+OfficeItem.propTypes = {
   office: PropTypes.object.isRequired,
-  layout: PropTypes.string.isRequired
+  layout: PropTypes.oneOf([layoutTypes.list, layoutTypes.grid]).isRequired
 };
 
 export default OfficeItem;
