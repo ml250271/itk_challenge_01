@@ -17,22 +17,22 @@ const renderList = {
   titleClass: "mt-0"
 };
 
-const layoutTypes = {
-  grid: "grid",
-  list: "list"
-};
-
 const Truncate = styled.div`
   p {
-    width: ${props => (props.layout === layoutTypes.list ? "85vw" : "93%")};
+    width: ${props => (props.layout === LayoutType.list ? "85vw" : "93%")};
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 `;
 
+export const LayoutType = {
+  grid: "grid",
+  list: "list"
+};
+
 const OfficeItem = ({ office, layout }) => {
-  const renderStyle = layout === layoutTypes.list ? renderList : renderGrid;
+  const renderStyle = layout === LayoutType.list ? renderList : renderGrid;
 
   const { wrapperClass, imgClass, bodyClass, titleClass } = renderStyle;
   const { name, description } = office;
@@ -51,7 +51,7 @@ const OfficeItem = ({ office, layout }) => {
 
 OfficeItem.propTypes = {
   office: PropTypes.object.isRequired,
-  layout: PropTypes.oneOf([layoutTypes.list, layoutTypes.grid]).isRequired
+  layout: PropTypes.oneOf([LayoutType.list, LayoutType.grid]).isRequired
 };
 
 export default OfficeItem;

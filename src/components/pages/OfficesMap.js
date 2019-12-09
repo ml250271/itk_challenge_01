@@ -126,17 +126,7 @@ class OfficesMap extends Component {
             } = office;
             return (
               <Marker key={id} latitude={latitude} longitude={longitude}>
-                <PinButton
-                  onClick={() =>
-                    this.handlePopup({
-                      latitude: latitude,
-                      longitude: longitude,
-                      photo: photo,
-                      description: description,
-                      name: name
-                    })
-                  }
-                >
+                <PinButton onClick={() => this.handlePopup(office)}>
                   <svg
                     style={{
                       ...pinStyle,
@@ -174,10 +164,6 @@ OfficesMap.propTypes = {
       photo: PropTypes.string
     })
   ).isRequired
-};
-
-OfficesMap.defaultProps = {
-  offices: []
 };
 
 export default OfficesMap;

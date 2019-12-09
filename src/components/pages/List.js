@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import OfficeItem from "../shared/OfficeItem";
 import { PropTypes } from "prop-types";
+import { LayoutType } from "./../shared/OfficeItem";
 
 const ListItemWrapper = styled.div`
   width: 95%;
@@ -33,7 +34,7 @@ const List = ({ offices }) => {
     <>
       {offices.map(office => (
         <ListItemWrapper key={office.id}>
-          <OfficeItem office={office} layout={"list"} />
+          <OfficeItem office={office} layout={LayoutType.list} />
         </ListItemWrapper>
       ))}
     </>
@@ -51,10 +52,6 @@ List.propTypes = {
       photo: PropTypes.string
     })
   ).isRequired
-};
-
-List.defaultProps = {
-  offices: []
 };
 
 export default List;

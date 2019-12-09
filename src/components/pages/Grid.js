@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import OfficeItem from "../shared/OfficeItem";
+import { LayoutType } from "./../shared/OfficeItem";
 
 const GridItemWrapper = styled.div`
   display: grid;
@@ -58,7 +59,13 @@ const Grid = ({ offices }) => {
   return (
     <GridItemWrapper>
       {offices.map(office => {
-        return <OfficeItem key={office.id} office={office} layout={"grid"} />;
+        return (
+          <OfficeItem
+            key={office.id}
+            office={office}
+            layout={LayoutType.grid}
+          />
+        );
       })}
     </GridItemWrapper>
   );
@@ -75,10 +82,6 @@ Grid.propTypes = {
       photo: PropTypes.string
     })
   ).isRequired
-};
-
-Grid.defaultProps = {
-  offices: []
 };
 
 export default Grid;
