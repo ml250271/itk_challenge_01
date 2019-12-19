@@ -5,6 +5,7 @@ import List from "./components/pages/List";
 import Grid from "./components/pages/Grid";
 import OfficesMap from "./components/pages/OfficesMap";
 import NavBar from "./components/shared/NavBar";
+import NavBarBottom from "./components/shared/NavBarBottom";
 import "./App.css";
 
 class App extends Component {
@@ -27,7 +28,6 @@ class App extends Component {
     try {
       const { data } = await axios.get(process.env.REACT_APP_API_URL);
       const preparedData = this.prepareData(data);
-      console.log(preparedData);
       this.setState({ offices: preparedData, loading: false, hasError: false });
     } catch (error) {
       this.setState({ loading: false, hasError: true });
@@ -84,6 +84,7 @@ class App extends Component {
           path="/offices-map"
           render={() => <OfficesMap offices={offices} />}
         />
+        <NavBarBottom />
       </Router>
     );
   }

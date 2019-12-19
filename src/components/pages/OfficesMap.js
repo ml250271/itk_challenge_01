@@ -116,14 +116,7 @@ class OfficesMap extends Component {
             <NavigationControl />
           </NavStyle>
           {offices.map(office => {
-            const {
-              id,
-              name,
-              longitude,
-              latitude,
-              photo,
-              description
-            } = office;
+            const { id, longitude, latitude } = office;
             return (
               <Marker key={id} latitude={latitude} longitude={longitude}>
                 <PinButton onClick={() => this.handlePopup(office)}>

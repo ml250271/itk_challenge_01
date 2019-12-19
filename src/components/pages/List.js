@@ -17,7 +17,7 @@ const ListItemWrapper = styled.div`
     margin: 0 10px;
   }
   .office-letter {
-    width: 60px;
+    min-width: 60px;
     height: 60px;
     line-height: 60px;
     text-align: center;
