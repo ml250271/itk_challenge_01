@@ -1,18 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import GridItem from "./GridItem";
+import PropTypes from "prop-types";
+import OfficeItem from "../shared/OfficeItem";
+import { LayoutType } from "./../shared/OfficeItem";
 
 const GridItemWrapper = styled.div`
   display: grid;
-  grid-template-columns: 2.5fr 2.5fr 2.5fr 2.5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 12px;
   margin: 20px;
   padding: 20px;
   background: rgb(119, 201, 182);
+
   .card {
     min-height: 300px;
     padding-top: 20px;
+    text-align: center;
   }
+
+  .card-body {
+    width: 100%;
+  }
+
   .card-img-top {
     background-size: cover;
     background-position: center;
@@ -46,15 +55,33 @@ const GridItemWrapper = styled.div`
   }
 `;
 
-const Grid = props => {
-  const { offices } = props;
+const Grid = ({ offices }) => {
   return (
     <GridItemWrapper>
       {offices.map(office => {
-        return <GridItem key={office.id} office={office} />;
+        return (
+          <OfficeItem
+            key={office.id}
+            office={office}
+            layout={LayoutType.grid}
+          />
+        );
       })}
     </GridItemWrapper>
   );
+};
+
+Grid.propTypes = {
+  offices: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      id: PropTypes.number,
+      latitude: PropTypes.number,
+      longitude: PropTypes.number,
+      name: PropTypes.string,
+      photo: PropTypes.string
+    })
+  ).isRequired
 };
 
 export default Grid;

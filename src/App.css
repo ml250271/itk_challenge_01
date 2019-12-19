@@ -1,0 +1,9 @@
+.aligner {
+    display: flex;
+    height: 100vh;
+}
+  
+.aligner-item {
+    height: 100vh;
+    align-self: center;
+}
